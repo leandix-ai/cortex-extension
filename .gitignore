@@ -1,0 +1,50 @@
+# Dependency directories
+node_modules/
+jspm_packages/
+
+# Build artifacts
+out/
+dist/
+dist-webview/
+build/
+*.vsix
+
+# VS Code & Test runtime
+.vscode-test/
+.vscode/extensions.json
+.vscode/launch.json
+.vscode/tasks.json
+.history/
+
+# TypeScript
+*.tsbuildinfo
+
+# Logs & Debug
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+logic
+
+# Aider & AI artifacts
+.aider.chat.history.md
+.aider.input.history
+.aider.tags.cache.v4/
+tmp_aider/
+.aider/
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.env
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Misc
+.temp/
+tmp/

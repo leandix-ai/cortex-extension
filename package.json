@@ -1,0 +1,149 @@
+{
+  "name": "leandix-cortex",
+  "displayName": "Leandix Cortex",
+  "description": "IDE-native AI coding assistant with Extended Thinking, multi-provider support, LSP context graph, and full session undo.",
+  "version": "0.1.0",
+  "icon": "assets/logo.png",
+  "publisher": "leandix",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Machine Learning",
+    "Other"
+  ],
+  "keywords": [
+    "ai",
+    "coding",
+    "assistant",
+    "claude",
+    "anthropic"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "cortex.openChat",
+        "title": "Cortex: Open Chat",
+        "icon": "$(comment-discussion)"
+      },
+      {
+        "command": "cortex.inlineChat",
+        "title": "Cortex: Inline Chat",
+        "icon": "$(sparkle)"
+      },
+      {
+        "command": "cortex.undoLastSession",
+        "title": "Cortex: Undo Last AI Session",
+        "icon": "$(discard)"
+      },
+      {
+        "command": "cortex.switchProfile",
+        "title": "Cortex: Switch Provider Profile"
+      },
+      {
+        "command": "cortex.cancelRequest",
+        "title": "Cortex: Cancel Current Request",
+        "icon": "$(stop)"
+      },
+      {
+        "command": "cortex.acceptChange",
+        "title": "Cortex: Accept Change",
+        "icon": "$(check)"
+      },
+      {
+        "command": "cortex.rejectChange",
+        "title": "Cortex: Reject Change",
+        "icon": "$(close)"
+      },
+      {
+        "command": "cortex.openConfig",
+        "title": "Cortex: Open Config File",
+        "icon": "$(gear)"
+      },
+      {
+        "command": "cortex.newConversation",
+        "title": "Cortex: New Conversation",
+        "icon": "$(add)"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "cortex-sidebar",
+          "title": "Leandix Cortex",
+          "icon": "assets/logo.png"
+        }
+      ]
+    },
+    "views": {
+      "cortex-sidebar": [
+        {
+          "type": "webview",
+          "id": "cortex.chatView",
+          "name": "Chat"
+        }
+      ]
+    },
+    "keybindings": [
+      {
+        "command": "cortex.inlineChat",
+        "key": "ctrl+shift+i",
+        "mac": "cmd+shift+i",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "cortex.openChat",
+        "key": "ctrl+shift+l",
+        "mac": "cmd+shift+l"
+      },
+      {
+        "command": "cortex.cancelRequest",
+        "key": "escape",
+        "when": "cortex.isStreaming"
+      },
+      {
+        "command": "cortex.undoLastSession",
+        "key": "ctrl+shift+z",
+        "mac": "cmd+shift+z",
+        "when": "cortex.hasUndoableActions"
+      }
+    ],
+    "configuration": {
+      "title": "Leandix Cortex",
+      "properties": {
+        "cortex.configPath": {
+          "type": "string",
+          "default": "",
+          "description": "Custom path to Cortex config file. Leave empty to use default: ~/.leandix/settings.json"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "build:webview": "cd webview-ui && npm run build",
+    "dev:webview": "cd webview-ui && npm run dev",
+    "compile": "npm run build:webview && node build.js",
+    "watch": "node build.js --watch",
+    "pretest": "npm run build:webview && node build.js",
+    "test": "node ./src/test/runMocha.js",
+    "test:vscode": "node ./out/test/runTest.js",
+    "package": "npm run build:webview && npx @vscode/vsce package --no-dependencies"
+  },
+  "author": "",
+  "devDependencies": {
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^25.3.5",
+    "@types/sinon": "^21.0.0",
+    "@types/vscode": "^1.85.0",
+    "@vscode/test-electron": "^2.5.2",
+    "mocha": "^11.7.5",
+    "sinon": "^21.0.2",
+    "typescript": "^5.9.3"
+  }
+}
