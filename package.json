@@ -4,7 +4,7 @@
   "description": "IDE-native AI coding assistant with Extended Thinking, multi-provider support, LSP context graph, and full session undo.",
   "version": "0.1.0",
   "icon": "assets/logo.png",
-  "publisher": "leandix",
+  "publisher": "LeandixCortex",
   "license": "MIT",
   "engines": {
     "vscode": "^1.85.0"
