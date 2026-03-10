@@ -127,7 +127,9 @@ leandix-cortex/
 ```bash
 # 1. Install dependencies
 npm install
-cd webview-ui && npm install && cd ..
+cd webview-ui
+npm install
+cd ..
 
 # 2. Compile the extension
 npm run compile
@@ -135,8 +137,9 @@ npm run compile
 # 3. Package as VSIX
 npm run package
 
-# 4. Install in VS Code
-code --install-extension leandix-cortex-0.1.0.vsix
+# 4. Install in VS Code / Antigravity
+code --install-extension leandix-cortex-0.1.0.vsix --force
+antigravity --install-extension leandix-cortex-0.1.0.vsix --force
 ```
 
 ### Provider Configuration
