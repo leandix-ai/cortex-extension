@@ -135,6 +135,10 @@
     "test:vscode": "node ./out/test/runTest.js",
     "package": "npm run build:webview && npx @vscode/vsce package --no-dependencies"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/leandix-ai/cortex-extension"
+  },
   "author": "",
   "devDependencies": {
     "@types/mocha": "^10.0.10",

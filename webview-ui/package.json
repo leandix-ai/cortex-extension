@@ -1,5 +1,10 @@
 {
     "name": "cortex-webview-ui",
+    "displayName": "Leandix Cortex",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/leandix-ai/cortex-extension"
+    },
     "private": true,
     "version": "0.0.1",
     "type": "module",
